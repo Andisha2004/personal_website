@@ -127,6 +127,17 @@ img {
     z-index: 1;
 }
 
+.hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 440px);
+    align-items: center;
+    gap: 42px;
+}
+
+.hero-text {
+    max-width: 720px;
+}
+
 .eyebrow,
 .section-label,
 .project-kicker {
@@ -146,10 +157,73 @@ img {
 }
 
 .hero-copy {
-    max-width: 720px;
     margin: 28px 0 0;
     color: rgba(248, 251, 255, 0.82);
     font-size: 1.18rem;
+}
+
+.hero-visual {
+    position: relative;
+    min-height: 620px;
+}
+
+.hero-photo-card,
+.hero-badge {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 60px rgba(2, 8, 23, 0.38);
+}
+
+.hero-photo-card {
+    overflow: hidden;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.hero-photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-photo-main {
+    inset: 0 54px 110px 0;
+    transform: rotate(-4deg);
+}
+
+.hero-photo-accent {
+    right: 0;
+    bottom: 26px;
+    width: 220px;
+    height: 290px;
+    border-radius: 26px;
+    transform: rotate(6deg);
+    z-index: 2;
+}
+
+.hero-badge {
+    left: 18px;
+    bottom: 12px;
+    max-width: 250px;
+    padding: 18px 20px;
+    border-radius: 22px;
+    background: rgba(10, 18, 34, 0.88);
+    backdrop-filter: blur(10px);
+}
+
+.hero-badge-label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.hero-badge strong {
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 .hero-actions,
@@ -266,8 +340,13 @@ img {
 }
 
 .about-grid {
-    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    grid-template-columns: minmax(280px, 430px) minmax(0, 1fr);
     align-items: center;
+}
+
+.about-photo-cluster {
+    position: relative;
+    min-height: 620px;
 }
 
 .about-photo-wrap {
@@ -293,6 +372,27 @@ img {
     object-fit: cover;
 }
 
+.about-photo-primary {
+    position: absolute;
+    inset: 0 92px 70px 0;
+}
+
+.about-photo-secondary {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 220px;
+    z-index: 2;
+}
+
+.supporting-photo {
+    width: 100%;
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    aspect-ratio: 0.72 / 1;
+    object-fit: cover;
+}
+
 .about-copy {
     font-size: 1.06rem;
     color: var(--text-soft);
@@ -300,6 +400,54 @@ img {
 
 .about-copy p + p {
     margin-top: 18px;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    gap: 24px;
+}
+
+.story-card {
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+}
+
+.story-card-tall {
+    grid-row: span 2;
+}
+
+.story-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.story-card-tall .story-image {
+    height: 100%;
+    min-height: 540px;
+}
+
+.story-image-focus-top {
+    object-position: center 18%;
+}
+
+.story-copy {
+    padding: 20px 22px 24px;
+}
+
+.story-copy h3 {
+    margin-bottom: 8px;
+    font-size: 1.35rem;
+}
+
+.story-copy p {
+    margin-bottom: 0;
+    color: var(--text-soft);
 }
 
 .experience-list {
@@ -439,7 +587,12 @@ img {
 @media (max-width: 992px) {
     .projects-grid,
     .skills-grid,
-    .about-grid {
+    .about-grid,
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-layout {
         grid-template-columns: 1fr;
     }
 
@@ -453,6 +606,49 @@ img {
     .footer-inner {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .hero-visual,
+    .about-photo-cluster {
+        min-height: auto;
+    }
+
+    .hero-photo-card,
+    .hero-badge,
+    .about-photo-primary,
+    .about-photo-secondary {
+        position: relative;
+        inset: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        transform: none;
+    }
+
+    .hero-visual,
+    .about-photo-cluster {
+        display: grid;
+        gap: 18px;
+    }
+
+    .hero-photo-main {
+        min-height: 420px;
+    }
+
+    .hero-photo-accent {
+        max-width: 260px;
+    }
+
+    .story-card-tall {
+        grid-row: span 1;
+    }
+
+    .story-card-tall .story-image,
+    .story-image {
+        min-height: 0;
+        height: 320px;
     }
 }
 
