@@ -169,6 +169,32 @@ img {
 .hero-visual {
     position: relative;
     min-height: 640px;
+    isolation: isolate;
+}
+
+.hero-visual::before,
+.hero-visual::after {
+    content: "";
+    position: absolute;
+    border-radius: 34px;
+    pointer-events: none;
+}
+
+.hero-visual::before {
+    inset: 42px 52px 128px -6px;
+    background: linear-gradient(145deg, rgba(84, 188, 255, 0.16), rgba(72, 117, 255, 0.08));
+    filter: blur(0.5px);
+    z-index: 0;
+}
+
+.hero-visual::after {
+    right: 12px;
+    bottom: 76px;
+    width: 210px;
+    height: 248px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.2), rgba(72, 117, 255, 0.14));
+    box-shadow: 0 30px 70px rgba(17, 45, 92, 0.24);
+    z-index: 1;
 }
 
 .hero-photo-card,
@@ -181,7 +207,9 @@ img {
 .hero-photo-card {
     overflow: hidden;
     border-radius: 30px;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    z-index: 2;
 }
 
 .hero-photo-card img {
@@ -191,21 +219,23 @@ img {
 }
 
 .hero-photo-main {
-    inset: 0 0 100px 18px;
-    transform: rotate(-3deg);
+    inset: 8px 46px 108px 24px;
+    transform: rotate(-2.5deg);
 }
 
 .hero-photo-secondary {
-    right: -28px;
-    bottom: 18px;
-    width: min(44%, 260px);
-    aspect-ratio: 0.86 / 1;
-    transform: rotate(7deg);
-    z-index: 2;
+    right: 8px;
+    bottom: 22px;
+    width: min(39%, 228px);
+    aspect-ratio: 0.82 / 1;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 28px 58px rgba(4, 10, 24, 0.4);
+    transform: rotate(8deg);
+    z-index: 3;
 }
 
 .hero-photo-secondary img {
-    object-position: center 24%;
+    object-position: center 26%;
 }
 
 .hero-badge {
@@ -216,7 +246,7 @@ img {
     border-radius: 22px;
     background: rgba(10, 18, 34, 0.88);
     backdrop-filter: blur(10px);
-    z-index: 3;
+    z-index: 4;
 }
 
 .hero-badge-label {
