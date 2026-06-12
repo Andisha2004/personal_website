@@ -195,6 +195,19 @@ img {
     transform: rotate(-3deg);
 }
 
+.hero-photo-secondary {
+    right: -28px;
+    bottom: 18px;
+    width: min(44%, 260px);
+    aspect-ratio: 0.86 / 1;
+    transform: rotate(7deg);
+    z-index: 2;
+}
+
+.hero-photo-secondary img {
+    object-position: center 24%;
+}
+
 .hero-badge {
     left: 0;
     bottom: 0;
@@ -362,10 +375,16 @@ img {
     box-shadow: var(--shadow);
     aspect-ratio: 1 / 1.08;
     object-fit: cover;
+    object-position: center 18%;
 }
 
 .about-photo-single {
     max-width: 430px;
+}
+
+.about-photo-single .profile-photo {
+    aspect-ratio: 1 / 1.16;
+    object-position: center 8%;
 }
 
 .about-copy {
@@ -404,6 +423,10 @@ img {
 
 .story-image-library {
     object-position: center 28%;
+}
+
+.story-image-stone {
+    object-position: center 34%;
 }
 
 .story-image-summit {
